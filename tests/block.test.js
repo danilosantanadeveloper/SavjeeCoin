@@ -83,4 +83,14 @@ it('should return false when a single tx is bad', function() {
   ];
 
   assert(!blockObj.hasValidTransactions());
+});it('should return false when a single tx is bad', function() {
+  const badTx = createSignedTx();
+  badTx.amount = 1337;
+
+  blockObj.transactions = [
+    createSignedTx(),
+    badTx
+  ];
+
+  assert(!blockObj.hasValidTransactions());
 });
